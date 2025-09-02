@@ -33,11 +33,11 @@ jobs:
         run: pnpm turbo run build
 
       - name: Publish Markdown Converter
-        run: pnpm publish --filter=@your-username/markdown-converter --access public
+        run: pnpm publish --filter=@hamza865/markdown-converter --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish String Utils
-        run: pnpm publish --filter=@your-username/string-utils --access public
+        run: pnpm publish --filter=@hamza865/string-utils --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
