@@ -1,0 +1,43 @@
+
+---
+
+# 🔹 GitHub Actions (Auto Publish)
+
+### **monorepo/.github/workflows/release.yml**
+```yaml
+name: Release & Publish
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org/"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build packages
+        run: pnpm turbo run build
+
+      - name: Publish Markdown Converter
+        run: pnpm publish --filter=@your-username/markdown-converter --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish String Utils
+        run: pnpm publish --filter=@your-username/string-utils --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
