@@ -4,16 +4,30 @@
   "description": "Convert Markdown text into HTML",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hamza865/monorepo.git"
+    "url": "git+https://github.com/hamza865/monorepo.git"
   },
-  "keywords": ["markdown", "converter", "html"],
+  "keywords": [
+    "markdown",
+    "converter",
+    "html"
+  ],
   "author": "Hamza Niaz",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/hamza865/monorepo/issues"
+  },
+  "homepage": "https://github.com/hamza865/monorepo#readme",
   "dependencies": {
     "marked": "^12.0.0"
   }
