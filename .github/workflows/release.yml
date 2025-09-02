@@ -3,7 +3,7 @@ name: Release & Publish
 on:
   push:
     tags:
-      - "v*"
+      - "v*"   # Runs only when you push a version tag like v1.0.1
 
 jobs:
   release:
@@ -27,18 +27,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # Build both packages
+      # Build all packages using turbo
       - name: Build packages
-        run: pnpm turbo run build --filter=@hamza865/markdown-converter --filter=@hamza865/string-utils
+        run: pnpm turbo run build
 
       # Publish markdown-converter
-      - name: Publish markdown-converter
-        run: pnpm publish --filter=@hamza865/markdown-converter --access public
+      - name: Publish @hamza865/markdown-converter
+        run: pnpm publish --filter=@hamza865/markdown-converter --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # Publish string-utils
-      - name: Publish string-utils
-        run: pnpm publish --filter=@hamza865/string-utils --access public
+      - name: Publish @hamza865/string-utils
+        run: pnpm publish --filter=@hamza865/string-utils --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
