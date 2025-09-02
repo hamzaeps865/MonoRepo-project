@@ -1,25 +1,36 @@
 {
   "name": "@hamza865/markdown-converter-latest",
   "version": "1.0.0",
-  "description": "Convert Markdown text into HTML",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "A lightweight utility to convert Markdown text into clean and safe HTML.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hamza865/monorepo.git"
+    "url": "git+https://github.com/hamza865/monorepo.git",
+    "directory": "packages/markdown-converter-latest"
   },
   "keywords": [
     "markdown",
     "converter",
-    "html"
+    "html",
+    "parser",
+    "markdown-to-html",
+    "typescript"
   ],
-  "author": "Hamza Niaz",
+  "author": {
+    "name": "Hamza Niaz",
+    "email": "hamza865@example.com",
+    "url": "https://github.com/hamza865"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -27,7 +38,7 @@
   "bugs": {
     "url": "https://github.com/hamza865/monorepo/issues"
   },
-  "homepage": "https://github.com/hamza865/monorepo#readme",
+  "homepage": "https://github.com/hamza865/monorepo/tree/main/packages/markdown-converter-latest#readme",
   "dependencies": {
     "marked": "^12.0.0"
   }

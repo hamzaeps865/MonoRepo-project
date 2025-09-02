@@ -2,24 +2,28 @@
   "name": "@hamza865/string-utils",
   "version": "1.0.0",
   "description": "Utility functions for string manipulation",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hamza865/monorepo.git"
+    "url": "git+https://github.com/hamza865/monorepo.git",
+    "directory": "packages/string-utils"
   },
   "keywords": [
     "string",
     "utils",
-    "text"
+    "text",
+    "format",
+    "manipulation"
   ],
-  "author": "Hamza Niaz",
+  "author": "Hamza Niaz <hamza865@example.com>",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -27,5 +31,5 @@
   "bugs": {
     "url": "https://github.com/hamza865/monorepo/issues"
   },
-  "homepage": "https://github.com/hamza865/monorepo#readme"
+  "homepage": "https://github.com/hamza865/monorepo/tree/main/packages/string-utils#readme"
 }
